@@ -1,5 +1,6 @@
 <?php
-class Siswa extends Controller
+
+class siswa extends Controller
 {
     public function index()
     {
@@ -9,6 +10,7 @@ class Siswa extends Controller
         $this->view('siswa/index', $data);
         $this->view('templates/footer');
     }
+
     public function detail($id)
     {
         $data['judul'] = 'Detail Siswa';
@@ -20,49 +22,54 @@ class Siswa extends Controller
 
     public function tambah()
     {
-        $siswaModel = $this->model('Siswa_model');
-
-        // Validasi jika data tidak diisi
-        if (empty($_POST['nama']) || empty($_POST['umur'])) {
-            Flasher::setFlash('tidak lengkap. Silakan isi semua kolom.', '', 'danger');
+        if ($this->model('Siswa_model')->tambahDataSiswa($_POST) > 0) {
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            header('Location: ' . BASEURL . 'siswa');
+            exit;
         } else {
-            if ($siswaModel->tambahDataSiswa($_POST) > 0) {
-                Flasher::setFlash('berhasil ditambahkan.', '', 'success');
-            }
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('Location: ' . BASEURL . 'siswa');
+            exit;
         }
-
-        header('Location: ' . BASEURL . 'siswa');
-        exit;
     }
-
 
     public function hapus($id)
     {
         if ($this->model('Siswa_model')->hapusDataSiswa($id) > 0) {
-            Flasher::setFlash('berhasil ', 'dihapus', 'success');
+            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            header('Location: ' . BASEURL . 'siswa');
+            exit;
         } else {
-            Flasher::setFlash('gagal ', 'dihapus', 'danger'); // Perbaiki menjadi 'danger'
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            header('Location: ' . BASEURL . 'siswa');
+            exit;
         }
-        header('Location: ' . BASEURL . 'siswa');
-        exit;
     }
 
-
-    public function getUbah()
+    public function getubah()
     {
-        echo json_encode($this->model('Siswa_model')->getSiswaById($_POST['id']));
+        echo json_encode($this->model('Siswa_model')->getsiswaById($_POST['id']));
     }
 
     public function ubah()
     {
-        if ($this->model('Siswa_model')->ubahDataSiswa($_POST) > 0) {
+        if ($this->model('Siswa_model')->ubahDatasiswa($_POST) > 0) {
             Flasher::setFlash('berhasil', 'diubah', 'success');
             header('Location: ' . BASEURL . 'siswa');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'success');
+            Flasher::setFlash('gagal', 'diubah', 'danger');
             header('Location: ' . BASEURL . 'siswa');
             exit;
         }
+    }
+
+    public function cari()
+    {
+        $data['judul'] = 'Daftar Siswa';
+        $data['siswa'] = $this->model('Siswa_model')->cariDataSiswa();
+        $this->view('templates/header', $data);
+        $this->view('siswa/index', $data);
+        $this->view('templates/footer');
     }
 }
