@@ -29,8 +29,10 @@
     <ul class="list-group" data-aos="fade-up" data-aos-duration="1000">
         <?php foreach ($data['kelas'] as $kelas) : ?>
         <li class="list-group-item d-flex flex-row justify-content-between">
-            <?= $kelas['kelas']; ?>
-            <div class="d-flex gap-2">
+            <p class="m-0 me-2">
+                <?= $kelas['kelas']; ?>
+            </p>
+            <div class="d-flex flex-row align-items-center gap-2">
                 <a href="<?= BASEURL; ?>kelas/detail/<?= $kelas['id'] ?>"
                     class="badge text-bg-primary text-decoration-none float-right">detail</a>
                 <a href="<?= BASEURL; ?>kelas/ubah/<?= $kelas['id'] ?>"

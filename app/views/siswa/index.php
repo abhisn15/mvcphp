@@ -29,10 +29,10 @@
     <ul class="list-group" style="padding-bottom: 100px !important;">
         <?php foreach ($data['siswa'] as $siswa) : ?>
         <li class="list-group-item d-flex flex-row justify-content-between" data-aos="fade-up" data-aos-duration="1000">
-            <p class="m-0">
+            <p class="m-0 me-2">
                 <?= $siswa['nama']; ?>
             </p>
-            <div class="d-flex gap-2">
+            <div class="d-flex flex-row align-items-center gap-2">
                 <a href="<?= BASEURL; ?>siswa/detail/<?= $siswa['id'] ?>"
                     class="badge text-bg-primary text-decoration-none float-right">detail</a>
                 <a href="<?= BASEURL; ?>siswa/ubah/<?= $siswa['id'] ?>"

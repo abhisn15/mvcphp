@@ -29,8 +29,10 @@
     <ul class="list-group" style="margin-bottom: 100px;">
         <?php foreach ($data['guru'] as $guru) : ?>
         <li class="list-group-item d-flex flex-row justify-content-between" data-aos="fade-up" data-aos-duration="1000">
-            <?= $guru['nama']; ?>
-            <div class="d-flex gap-2">
+            <p class="m-0 me-2">
+                <?= $guru['nama']; ?>
+            </p>
+            <div class="d-flex flex-row align-items-center gap-2">
                 <a href="<?= BASEURL; ?>/guru/detail/<?= $guru['id'] ?>"
                     class="badge text-bg-primary text-decoration-none float-right">detail</a>
                 <a href="<?= BASEURL; ?>/guru/ubah/<?= $guru['id'] ?>"

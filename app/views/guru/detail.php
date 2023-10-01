@@ -7,7 +7,7 @@
                     alt="Guru Photo">
                 <h5 class="card-title">Nama Guru: <?= $data['guru']['nama']; ?></h5>
                 <p class="card-text">Mapel: <?= $data['guru']['mapel']; ?></p>
-                <a href="<?= BASEURL; ?>/jurusan" class="btn btn-primary card-link">Kembali</a>
+                <a href="<?= BASEURL; ?>guru" class="btn btn-primary card-link">Kembali</a>
             </div>
         </div>
     </div>
