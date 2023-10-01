@@ -28,6 +28,7 @@ class siswa extends Controller
             exit;
         } else {
             Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            Flasher::setFlash('berhasil ', 'ditambahkan', 'success');
             header('Location: ' . BASEURL . 'siswa');
             exit;
         }
@@ -41,6 +42,7 @@ class siswa extends Controller
             exit;
         } else {
             Flasher::setFlash('gagal', 'dihapus', 'danger');
+            Flasher::setFlash('berhasil ', 'dihapus', 'success');
             header('Location: ' . BASEURL . 'siswa');
             exit;
         }
@@ -59,6 +61,7 @@ class siswa extends Controller
             exit;
         } else {
             Flasher::setFlash('gagal', 'diubah', 'danger');
+            Flasher::setFlash('berhasil ', 'diubah', 'success');
             header('Location: ' . BASEURL . 'siswa');
             exit;
         }
@@ -66,7 +69,7 @@ class siswa extends Controller
 
     public function cari()
     {
-        $data['judul'] = 'Daftar Siswa';
+        $data['judul'] = 'Daftar Jurusan';
         $data['siswa'] = $this->model('Siswa_model')->cariDataSiswa();
         $this->view('templates/header', $data);
         $this->view('siswa/index', $data);

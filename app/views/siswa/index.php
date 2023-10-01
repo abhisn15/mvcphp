@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container" style="margin-top: 80px;">
     <div class="row">
         <div class="col-lg-6">
             <?php Flasher::flash(); ?>
@@ -6,7 +6,8 @@
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
+            <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal"
+                data-bs-target="#formModal">
                 Tambah Data Siswa
             </button>
         </div>
@@ -16,7 +17,8 @@
         <div class="col-lg-6">
             <form action="<?= BASEURL; ?>siswa/cari" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="cari siswa..." name="keyword" id="keyword" aria-describedby="button-addon" autocomplete="off">
+                    <input type="text" class="form-control" placeholder="cari siswa..." name="keyword" id="keyword"
+                        aria-describedby="button-addon" autocomplete="off">
                     <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
                 </div>
             </form>
@@ -24,16 +26,23 @@
     </div>
     <br><br>
     <h1>Daftar Siswa</h1>
-    <ul class="list-group">
+    <ul class="list-group" style="padding-bottom: 100px !important;">
         <?php foreach ($data['siswa'] as $siswa) : ?>
-            <li class="list-group-item d-flex flex-row justify-content-between">
+        <li class="list-group-item d-flex flex-row justify-content-between" data-aos="fade-up" data-aos-duration="1000">
+            <p class="m-0">
                 <?= $siswa['nama']; ?>
-                <div class="d-flex gap-2">
-                    <a href="<?= BASEURL; ?>siswa/detail/<?= $siswa['id'] ?>" class="badge text-bg-primary text-decoration-none float-right">detail</a>
-                    <a href="<?= BASEURL; ?>siswa/ubah/<?= $siswa['id'] ?>" class="badge text-bg-success text-decoration-none float-right tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $siswa['id']; ?>">ubah</a>
-                    <a href="<?= BASEURL; ?>siswa/hapus/<?= $siswa['id'] ?>" class="badge text-bg-danger text-decoration-none float-right" onclick="return confirm('yakin?')">hapus</a>
-                </div>
-            </li>
+            </p>
+            <div class="d-flex gap-2">
+                <a href="<?= BASEURL; ?>siswa/detail/<?= $siswa['id'] ?>"
+                    class="badge text-bg-primary text-decoration-none float-right">detail</a>
+                <a href="<?= BASEURL; ?>siswa/ubah/<?= $siswa['id'] ?>"
+                    class="badge text-bg-success text-decoration-none float-right tampilModalUbah"
+                    data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $siswa['id']; ?>">ubah</a>
+                <a href="<?= BASEURL; ?>siswa/hapus/<?= $siswa['id'] ?>"
+                    class="badge text-bg-danger text-decoration-none float-right"
+                    onclick="return confirm('apakah anda yakin ingin mengahapus siswa yang bernama <?= $siswa['nama'] ?>?')">hapus</a>
+            </div>
+        </li>
         <?php endforeach; ?>
     </ul>
 </div>
@@ -41,11 +50,11 @@
 </div>
 
 <!-- Modal -->
-<div class=" modal fade" id="formModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+<div class=" modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="judulModal">Tambah Data Siswa</h1>
+                <h1 class="modal-title fs-5" id="formModalLabel">Tambah Data Siswa</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

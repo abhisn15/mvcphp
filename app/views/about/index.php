@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mb-5" style="margin-top: 100px;">
     <div class="d-flex flex-column align-items-center gap-4">
         <h1>About Me</h1>
         <img src="<?= BASEURL; ?>/img/abhi.jpg" class="rounded-circle shadow-lg" width="200">
