@@ -76,7 +76,7 @@ img {
         <figcaption class="d-flex flex-column justify-content-center m-5">
             <h1 class="text-white fw-bold">Selamat datang di Situs Saya!</h1>
             <h3 class="text-white mb-5" id="element"></h3>
-            <a class="pljri btn btn-primary" href="#" role="button">Pelajari lebih lanjut</a>
+            <a class="pljri btn btn-primary" href="<?= BASEURL; ?>about" role="button">Pelajari lebih lanjut</a>
         </figcaption>
     </figure>
 </div>
