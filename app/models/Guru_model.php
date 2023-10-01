@@ -67,7 +67,7 @@ class Guru_model
     public function cariDataguru()
     {
         $keyword = $_POST['keyword'];
-        $query = "SELECT * FROM guru WHERE guru LIKE :keyword";
+        $query = "SELECT * FROM guru WHERE nama LIKE :keyword";
         $this->db->query($query);
         $this->db->bind('keyword', "%$keyword%");
         return $this->db->resultSet();
